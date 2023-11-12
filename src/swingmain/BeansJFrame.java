@@ -11,32 +11,20 @@ package swingmain;
 public class BeansJFrame extends javax.swing.JFrame {
     //private javax.swing.JScrollPane jScrollPane1;
     //private javax.swing.JTable jTable1;
-    private GenericTableModel<UserData> model;
+    private final GenericTableModel<UserData> model;
     /**
      * Creates new form BeansJFrame
      */
     public BeansJFrame() {
-        init();
+        String[] columnNames = {"Id", "Username", "Password"};
+        boolean[] canEdit = new boolean[]{false, true, true};
+        model = new GenericTableModel<>(columnNames, canEdit );       
+        model.addData(new UserData(1, "Alice", "loholl"));
+        model.addData(new UserData(2, "Bob", "loholl"));
         initComponents();
         
     }
 
-    private void init(){
-
-        String[] columnNames = {"Id", "Username", "Password"};
-        
-        //jTable1.setColumnModel(new javax.swing.table.DefaultTableColumnModel());
-        model = new GenericTableModel<>(columnNames, new boolean[]{false, true, true});
-        
-        model.addData(new UserData(1, "Alice", "loholl"));
-        model.addData(new UserData(2, "Bob", "loholl"));
-        
-        //jTable1.setModel(model);
-        
-        
-        
-        //jScrollPane1.setViewportView(jTable1);
-    }
         
     /**
      * This method is called from within the constructor to initialize the form.
