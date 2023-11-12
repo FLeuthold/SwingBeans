@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package swingbeans;
+package swingmain;
 
 /**
  *
  * @author fabio
  */
-public class UserData {
-    private final int id;
+public class UserData extends javax.swing.table.DefaultTableColumnModel {
+    private int id;
     private String username;
     private String password;
 
@@ -18,7 +18,8 @@ public class UserData {
         this.username = username;
         this.password = password;
     }
-
+    
+    
     // Getters and setters (you can generate them automatically in most IDEs)
     // ...
 
@@ -26,6 +27,10 @@ public class UserData {
         return this.id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getUsername() {
         return this.username;
     }
