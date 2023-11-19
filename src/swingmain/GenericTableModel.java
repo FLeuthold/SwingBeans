@@ -3,13 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package swingmain;
-import java.io.Serializable;
+//import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import javax.swing.table.AbstractTableModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenericTableModel<T> extends AbstractTableModel implements Serializable {
+/**
+ *
+ * @author fabio
+ * @param <T>
+ */
+public class GenericTableModel<T> extends AbstractTableModel {
     final private List<T> data;
     final private String[] columnNames;
     final boolean[] canEdit;
@@ -71,6 +76,7 @@ public class GenericTableModel<T> extends AbstractTableModel implements Serializ
             rowData.getClass().getMethod("set" + columnNames[columnIndex], value.getClass()).invoke(rowData, value);
         } catch (IllegalAccessException | NoSuchMethodException | SecurityException | InvocationTargetException e) {
             //e.printStackTrace();
+            
         }
 
         fireTableCellUpdated(rowIndex, columnIndex);
